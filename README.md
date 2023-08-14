@@ -1,4 +1,4 @@
-# mc-properties-parser
+# minecraft-properties-parser
 
 An API for parsing, stringifying & write the Minecraft server.properties file format
 
@@ -6,10 +6,10 @@ An API for parsing, stringifying & write the Minecraft server.properties file fo
 
 ```shell
 # npm
-npm install mc-properties-parser
+npm install minecraft-properties-parser
 
 # yarn
-yarn add mc-properties-parser
+yarn add minecraft-properties-parser
 ```
 
 
@@ -31,7 +31,7 @@ yarn add mc-properties-parser
 #### example
 
 ```typescript
-import {parsedPropertiesFile} from "mc-properties-parser"
+import {parsedPropertiesFile} from "minecraft-properties-parser"
 const parsedPropertiesFile = await parsePropertiesFileToJson(path)
 
 ```
@@ -54,7 +54,7 @@ const parsedPropertiesFile = await parsePropertiesFileToJson(path)
 #### example
 
 ```typescript
-import {propertiesFileHasKey} from "mc-properties-parser"
+import {propertiesFileHasKey} from "minecraft-properties-parser"
 propertiesFileHasKey(propertiesFile, key)
 
 ```
@@ -77,7 +77,7 @@ propertiesFileHasKey(propertiesFile, key)
 #### example
 
 ```typescript
-import {writePropertiesFile} from "mc-properties-parser"
+import {writePropertiesFile} from "minecraft-properties-parser"
 // it can be the same path from the actual edited file and will replace the old with the new changes
 await writePropertiesFile(properties, path)
 
