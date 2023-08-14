@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Alan Escarcha <https://github.com/alanescarcha>",
-  "homepage": "https://github.com/alanescarcha/mc-properties-parser",
+  "homepage": "https://github.com/alanescarcha/minecraft-properties-parser",
   "license": "ISC",
   "scripts": {
     "test": "jest",
