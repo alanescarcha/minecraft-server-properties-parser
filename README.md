@@ -16,23 +16,30 @@ yarn add minecraft-server-properties-parser
 
 ## Usage
 
-### parsePropertiesFileToJson
+### parsePropertiesStringToJson
 
 | Name                      | Return                  | Description                                                  |
 | ------------------------- | ----------------------- | ------------------------------------------------------------ |
-| parsePropertiesFileToJson | Promise<PropertiesFile> | parsePropertiesFileToJson allow you to get the json conversion of a .properties file |
+| parsePropertiesStringToJson | Json<PropertiesFile> | parsePropertiesStringToJson allow you to get the json conversion of a .properties file |
 
 #### args
 
-| Parameter      | Type   | Description                           | Required |
-| -------------- | ------ | ------------------------------------- | -------- |
-| propertiesPath | string | path of the .properties file to parse | True     |
+| Parameter         | Type   | Description                                     | Required |
+| ------------------| ------ | ------------------------------------------------| -------- |
+| propertiesContent | string | content to parse                                | True     |
+| propertiesPath    | string | pth of the file to chick if it's a .properties  | True     |
 
 #### example
 
 ```typescript
-import {parsePropertiesFileToJson} from "minecraft-server-properties-parser"
-const parsePropertiesFileToJson = await parsePropertiesFileToJson(path)
+const content = `
+    broadcast-rcon-to-ops=true,
+    view-distance=10,
+    max-build-height=256
+`
+
+import {parsePropertiesStringToJson} from "minecraft-server-properties-parser"
+const parsePropertiesStringToJson = await parsePropertiesStringToJson(content, path)
 
 ```
 

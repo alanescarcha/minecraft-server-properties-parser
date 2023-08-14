@@ -6,15 +6,16 @@ export const parsePropertiesStringToJson = (propertiesContent: string, propertie
     const parsedConfigToJson: PropertiesFile  = {};
     
     parsedConfigToArray.forEach((line: string) => {
-        const parsedLine = line.split("=");
-        const key = parsedLine[0];
-        const value = parsedLine[1];
-        
-        if (key) {
-            // Convertir el valor "null" a null, mantener otros valores tal como están
-            const parsedValue = value === "null" ? null : convertStringToActualType(value);
-            
-            Object.assign(parsedConfigToJson, { [key]: parsedValue });
+        // Ignorar líneas que comienzan con "#"
+        if (!line.trim().startsWith("#")) {
+            const parsedLine = line.split("=");
+            const key = parsedLine[0];
+            const value = parsedLine[1];
+
+            if (key) {
+                const parsedValue = value === "null" ? null : convertStringToActualType(value);
+                Object.assign(parsedConfigToJson, { [key]: parsedValue });
+            }
         }
     });
     
