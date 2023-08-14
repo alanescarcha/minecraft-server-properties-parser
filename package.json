@@ -1,0 +1,27 @@
+{
+  "name": "mc-properties-parser",
+  "version": "1.0.0",
+  "description": "An API for parsing, stringifying & write the Minecraft server.properties file format",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Alan Escarcha <https://github.com/alanescarcha>",
+  "homepage": "https://github.com/alanescarcha/mc-properties-parser",
+  "license": "ISC",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "clean": "rimraf --glob dist/*",
+    "build": "npm run clean && tsc"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.10",
+    "jest": "^29.5.0",
+    "rimraf": "^4.4.1",
+    "ts-jest": "^29.0.5",
+    "typescript": "^5.0.2"
+  },
+  "files": [
+    "dist"
+  ]
+}
