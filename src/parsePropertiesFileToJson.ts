@@ -1,14 +1,27 @@
 import { PropertiesFile } from './types/PropertiesFile';
-import { readPropertiesFile } from './utils/readPropertiesFile';
-export const parsePropertiesFileToJson = async (propertiesPath: string): Promise<PropertiesFile> => {
-    const parsedConfigToArray = await readPropertiesFile(propertiesPath);
-    const parsedConfigToJson: PropertiesFile  = {}
+import { readPropertiesFromString } from './utils/readPropertiesFromString';
+
+export const parsePropertiesStringToJson = (propertiesContent: string, propertiesPath: string): PropertiesFile => {
+    const parsedConfigToArray = readPropertiesFromString(propertiesContent, propertiesPath);
+    const parsedConfigToJson: PropertiesFile  = {};
+    
     parsedConfigToArray.forEach((line: string) => {
         const parsedLine = line.split("=");
-        parsedLine[0] && Object.assign(parsedConfigToJson, {[parsedLine[0]]: convertStringToActualType(parsedLine[1]) })
+        const key = parsedLine[0];
+        const value = parsedLine[1];
+        
+        if (key) {
+            // Convertir el valor "null" a null, mantener otros valores tal como están
+            const parsedValue = value === "null" ? null : convertStringToActualType(value);
+            
+            Object.assign(parsedConfigToJson, { [key]: parsedValue });
+        }
     });
+    
     return parsedConfigToJson;
-}
+};
+
+
 
 const convertStringToActualType = (value: string): boolean | string | number | null | undefined => {
     

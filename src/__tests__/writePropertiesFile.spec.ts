@@ -1,13 +1,16 @@
-
-import { writePropertiesFile } from './../writePropertiesFile';
+import { parsePropertiesStringToJson } from '../parsePropertiesFileToJson';
 import { join } from 'path';
-import { parsePropertiesFileToJson } from '../parsePropertiesFileToJson';
+import { getUpdatedPropertiesContent } from '../getUpdatedPropertiesContent';
 
-test("File output should be equals to initial object", async () => {
+test("Updated content should match initial object", () => {
+    const initialPropertiesContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=256`;
+
+    const originalProperties = parsePropertiesStringToJson(initialPropertiesContent, join(__dirname, "./../test_data/server.properties"));
+
+    const updatedContent = getUpdatedPropertiesContent(originalProperties);
+
     const outputPath = join(__dirname, "./test_data/output/server.properties");
-    const propeties = await parsePropertiesFileToJson(join(__dirname, "./test_data/server.properties"));
-    await writePropertiesFile(propeties, outputPath);
+    const outputProperties = parsePropertiesStringToJson(updatedContent, outputPath);
 
-    const ouputResult = await parsePropertiesFileToJson(outputPath);
-    expect(propeties).toMatchObject(ouputResult);
-})
+    expect(originalProperties).toMatchObject(outputProperties);
+});

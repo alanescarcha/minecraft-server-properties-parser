@@ -31,8 +31,8 @@ yarn add minecraft-properties-parser
 #### example
 
 ```typescript
-import {parsedPropertiesFile} from "minecraft-properties-parser"
-const parsedPropertiesFile = await parsePropertiesFileToJson(path)
+import {parsePropertiesFileToJson} from "minecraft-properties-parser"
+const parsePropertiesFileToJson = await parsePropertiesFileToJson(path)
 
 ```
 

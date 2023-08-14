@@ -1,15 +1,23 @@
-import { propertiesFileHasKey } from "../propertiesFileHasKey"
-import { parsePropertiesFileToJson } from '../parsePropertiesFileToJson';
-import { join } from 'path';
+import { parsePropertiesStringToJson } from '../parsePropertiesFileToJson'; // Importar la función actualizada
+import { propertiesFileHasKey } from "../propertiesFileHasKey";
+import { join } from "path";
 
-test("Properties file should have key", async() => {
+test("Properties content should have key", () => {
     const key = 'view-distance';
-    expect(propertiesFileHasKey(await parsePropertiesFileToJson(join(__dirname, "./test_data/server.properties")), key))
-        .toBe(true)
-})
+    const propertiesContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=256`;
 
-test("Properties file should not have key", async() => {
+    // Convertir el contenido simulado en objeto de propiedades
+    const properties = parsePropertiesStringToJson(propertiesContent, join(__dirname, "./../test_data/server.properties"));
+
+    expect(propertiesFileHasKey(properties, key)).toBe(true);
+});
+
+test("Properties content should not have key", () => {
     const key = 'keyNotContain';
-    expect(propertiesFileHasKey(await parsePropertiesFileToJson(join(__dirname, "./test_data/server.properties")), key))
-        .toBe(false)
-})
+    const propertiesContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=256`;
+
+    // Convertir el contenido simulado en objeto de propiedades
+    const properties = parsePropertiesStringToJson(propertiesContent, join(__dirname, "./../test_data/server.properties"));
+
+    expect(propertiesFileHasKey(properties, key)).toBe(false);
+});
