@@ -6,11 +6,12 @@ test("Parsed properties content should match expected object", () => {
     const expected: PropertiesFile = {
         "broadcast-rcon-to-ops": true,
         "view-distance": 10,
-        "max-build-height": 256
+        "max-build-height": 256,
+        "server-ip": "0.0.0.0"
     };
 
     // Simular el contenido del archivo original
-    const initialPropertiesContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=256`;
+    const initialPropertiesContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=256\nserver-ip=0.0.0.0`;
     const parsedPropertiesFile = parsePropertiesStringToJson(initialPropertiesContent, join(__dirname, "./../test_data/server.properties"));
 
     expect(parsedPropertiesFile).toMatchObject(expected);

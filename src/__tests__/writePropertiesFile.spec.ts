@@ -3,7 +3,7 @@ import { join } from 'path';
 import { getUpdatedPropertiesContent } from '../getUpdatedPropertiesContent';
 
 test("Updated content should match initial object", () => {
-    const initialPropertiesContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=256`;
+    const initialPropertiesContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=256\nserver-ip=0.0.0.0`;
 
     const originalProperties = parsePropertiesStringToJson(initialPropertiesContent, join(__dirname, "./../test_data/server.properties"));
 

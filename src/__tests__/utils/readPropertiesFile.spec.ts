@@ -3,7 +3,7 @@ import { parsePropertiesStringToJson } from '../../parsePropertiesFileToJson';
 import { join } from "path";
 
 test("Expected properties content should match", () => {
-    const expectedContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=256`;
+    const expectedContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=256\nserver-ip=0.0.0.0`;
 
     const configFileContent = expectedContent;
 

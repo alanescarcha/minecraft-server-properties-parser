@@ -1,6 +1,6 @@
 {
   "name": "minecraft-server-properties-parser",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "An API for parsing, stringifying & write the Minecraft server.properties file format",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

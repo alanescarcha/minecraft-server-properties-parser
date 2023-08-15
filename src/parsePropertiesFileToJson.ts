@@ -1,6 +1,8 @@
 import { PropertiesFile } from './types/PropertiesFile';
 import { readPropertiesFromString } from './utils/readPropertiesFromString';
 
+const ipv4Pattern = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+
 export const parsePropertiesStringToJson = (propertiesContent: string, propertiesPath: string): PropertiesFile => {
     const parsedConfigToArray = readPropertiesFromString(propertiesContent, propertiesPath);
     const parsedConfigToJson: PropertiesFile  = {};
@@ -28,6 +30,10 @@ const convertStringToActualType = (value: string): boolean | string | number | n
 
     if (trimmedValue === "null" || trimmedValue === null || trimmedValue === "") {
         return "";
+    }
+
+    if (ipv4Pattern.test(trimmedValue)) {
+        return trimmedValue;
     }
 
     if (["true", "false"].includes(trimmedValue)) {
