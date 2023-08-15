@@ -12,7 +12,7 @@ export const parsePropertiesStringToJson = (propertiesContent: string, propertie
             const value = parsedLine[1];
 
             if (key) {
-                const parsedValue = value === "null" ? "" : convertStringToActualType(value);
+                const parsedValue = (value === null || value === "null" || value === "") ? "" : convertStringToActualType(value);
                 Object.assign(parsedConfigToJson, { [key]: parsedValue });
             }
         }
@@ -26,7 +26,7 @@ export const parsePropertiesStringToJson = (propertiesContent: string, propertie
 const convertStringToActualType = (value: string): boolean | string | number | null | undefined => {
     const trimmedValue = value.trim();
 
-    if (trimmedValue === "null") {
+    if (trimmedValue === "null" || trimmedValue === null || trimmedValue === "") {
         return "";
     }
 
