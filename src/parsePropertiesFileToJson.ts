@@ -6,14 +6,13 @@ export const parsePropertiesStringToJson = (propertiesContent: string, propertie
     const parsedConfigToJson: PropertiesFile  = {};
     
     parsedConfigToArray.forEach((line: string) => {
-        // Ignorar líneas que comienzan con "#"
         if (!line.trim().startsWith("#")) {
             const parsedLine = line.split("=");
             const key = parsedLine[0];
             const value = parsedLine[1];
 
             if (key) {
-                const parsedValue = value === "null" ? '' : convertStringToActualType(value);
+                const parsedValue = value === "null" ? "" : convertStringToActualType(value);
                 Object.assign(parsedConfigToJson, { [key]: parsedValue });
             }
         }
@@ -25,19 +24,19 @@ export const parsePropertiesStringToJson = (propertiesContent: string, propertie
 
 
 const convertStringToActualType = (value: string): boolean | string | number | null | undefined => {
-    
-    if(!value) return null;
+    const trimmedValue = value.trim();
 
-    const trimedValue = value.trim()
-    // if string match with boolean
-    if (["true", "false"].includes(trimedValue)) {
-        return value === "true"
+    if (trimmedValue === "null") {
+        return "";
     }
-    //if string can be converted to int 
-    if(!isNaN(parseInt(trimedValue))) {
-        return parseInt(trimedValue)
-    }
-    // if no match return value
-    return value;
 
-}
+    if (["true", "false"].includes(trimmedValue)) {
+        return value === "true";
+    }
+
+    if (!isNaN(parseInt(trimmedValue))) {
+        return parseInt(trimmedValue);
+    }
+
+    return trimmedValue;
+};

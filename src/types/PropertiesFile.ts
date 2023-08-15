@@ -1,47 +1,47 @@
 export interface PropertiesFile {
-    "broadcast-rcon-to-ops"?: boolean | null
-    "view-distance"?: number | null
-    "max-build-height"?: number | null
-    "server-ip"?: string | null
-    "level-seed"?: string | null
-    "rcon.port"?: number | null
-    "gamemode"?: string | null
-    "server-port"?: number | null
-    "allow-nether"?: boolean | null
-    "enable-command-block"?: boolean | null
-    "enable-rcon"?: boolean | null
-    "enable-query"?: boolean | null
-    "op-permission-level"?: number | null
-    "prevent-proxy-connections"?: boolean | null
-    "generator-settings"?: boolean | null
-    "resource-pack"?: string | null
-    "level-name"?: string | null
-    "rcon.password"?: string | null
-    "player-idle-timeout"?: number | null
-    "motd"?: string | null
-    "query.port"?: number | null
-    "debug"?: boolean | null
-    "force-gamemode"?: boolean | null
-    "hardcore"?: boolean | null
-    "white-list"?: boolean | null
-    "broadcast-console-to-ops"?: boolean | null
-    "pvp"?: boolean | null
-    "spawn-npcs"?: boolean | null
-    "generate-structures"?: boolean | null
-    "spawn-animals"?: boolean | null
-    "snooper-enabled"?: boolean | null
+    "broadcast-rcon-to-ops"?: boolean | string
+    "view-distance"?: number | string
+    "max-build-height"?: number | string
+    "server-ip"?: string
+    "level-seed"?: string
+    "rcon.port"?: number | string
+    "gamemode"?: string
+    "server-port"?: number | string
+    "allow-nether"?: boolean | string
+    "enable-command-block"?: boolean | string
+    "enable-rcon"?: boolean | string
+    "enable-query"?: boolean | string
+    "op-permission-level"?: number | string
+    "prevent-proxy-connections"?: boolean | string
+    "generator-settings"?: boolean | string
+    "resource-pack"?: string
+    "level-name"?: string
+    "rcon.password"?: string
+    "player-idle-timeout"?: number | string
+    "motd"?: string
+    "query.port"?: number | string
+    "debug"?: boolean | string
+    "force-gamemode"?: boolean | string
+    "hardcore"?: boolean | string
+    "white-list"?: boolean | string
+    "broadcast-console-to-ops"?: boolean | string
+    "pvp"?: boolean | string
+    "spawn-npcs"?: boolean | string
+    "generate-structures"?: boolean | string
+    "spawn-animals"?: boolean | string
+    "snooper-enabled"?: boolean | string
     "difficulty"?: 0 | 1 | 2 | 3 | "peaceful" | "easy" | "normal" | "hard"
-    "function-permission-level"?: number | null
-    "network-compression-threshold"?: number | null
+    "function-permission-level"?: number | string
+    "network-compression-threshold"?: number | string
     "level-type"?: "default" | "flat" | "largebiomes" | "amplified" | "customized"
-    "spawn-monsters"?: boolean | null
-    "max-tick-time"?: number | null
-    "enforce-whitelist"?: boolean | null
-    "use-native-transport"?: boolean | null
-    "max-players"?: number | null
-    "resource-pack-sha1"?: string | null
-    "spawn-protection"?: number | null
-    "online-mode"?: boolean | null
-    "allow-flight"?: boolean | null
-    "max-world-size"?: number | null
+    "spawn-monsters"?: boolean | string
+    "max-tick-time"?: number | string
+    "enforce-whitelist"?: boolean | string
+    "use-native-transport"?: boolean | string
+    "max-players"?: number | string
+    "resource-pack-sha1"?: string
+    "spawn-protection"?: number | string
+    "online-mode"?: boolean | string
+    "allow-flight"?: boolean | string
+    "max-world-size"?: number | string
 }
