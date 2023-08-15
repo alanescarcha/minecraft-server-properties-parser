@@ -13,7 +13,7 @@ export const parsePropertiesStringToJson = (propertiesContent: string, propertie
             const value = parsedLine[1];
 
             if (key) {
-                const parsedValue = value === "null" ? null : convertStringToActualType(value);
+                const parsedValue = value === "null" ? '' : convertStringToActualType(value);
                 Object.assign(parsedConfigToJson, { [key]: parsedValue });
             }
         }

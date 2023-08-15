@@ -24,7 +24,7 @@ test("Parsed properties content should match expected object with one null value
     };
 
     // Simular el contenido del archivo con valor nulo
-    const nullValuePropertiesContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=null`;
+    const nullValuePropertiesContent = `broadcast-rcon-to-ops=true\nview-distance=10\nmax-build-height=`;
     const parsedPropertiesFile = parsePropertiesStringToJson(nullValuePropertiesContent, join(__dirname, "./../test_data/server.properties"));
 
     expect(parsedPropertiesFile).toMatchObject(expected);
