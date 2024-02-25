@@ -73,6 +73,7 @@ export interface PropertiesFile {
     "compression-threshold"?: number | string
     "compression-algorithm"?: string
     "server-authoritative-movement"?: string
+    "player-position-acceptance-threshold"?: number | string
     "player-movement-score-threshold"?: number | string
     "player-movement-action-direction-threshold"?: number | string
     "player-movement-distance-threshold"?: number | string

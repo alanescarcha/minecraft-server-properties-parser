@@ -40,8 +40,8 @@ const convertStringToActualType = (value: string): boolean | string | number | n
         return value === "true";
     }
 
-    if (!isNaN(parseInt(trimmedValue))) {
-        return parseInt(trimmedValue);
+    if (!isNaN(parseFloat(trimmedValue))) {
+        return parseFloat(trimmedValue);
     }
 
     return trimmedValue;
